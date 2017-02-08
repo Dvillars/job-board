@@ -8,6 +8,7 @@ namespace JobBoard.Objects
     private string _description;
     private string _contact;
     private static List<Job> _instances = new List<Job> {};
+    private static int _counter = 0;
 
     public Job(string name, string description, string contact)
     {
@@ -15,6 +16,7 @@ namespace JobBoard.Objects
       _description = description;
       _contact = contact;
       _instances.Add(this);
+      _counter++;
     }
 
     public string GetName ()
@@ -35,6 +37,10 @@ namespace JobBoard.Objects
     public static List<Job> JobList()
     {
       return _instances;
+    }
+    public static int GetCounter()
+    {
+      return _counter;
     }
   }
 

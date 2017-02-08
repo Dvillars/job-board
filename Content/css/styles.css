@@ -7,3 +7,7 @@
   background-color: seashell;
   height: 100vh;
 }
+
+.left, .right {
+  padding-top: 5%;
+}

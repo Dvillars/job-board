@@ -10,11 +10,18 @@ namespace JobBoard
     public HomeModule()
     {
       Get["/"] = _ => {
-        return View["index.cshtml", Job.JobList()];
+        if (Job.GetCounter() == 0)
+        {
+          return View["no-jobs.cshtml"];
+        }
+        else
+        {
+          return View["index.cshtml", Job.JobList()];
+        }
       };
       Post["/add-job"] = _ => {
         Job newJob = new Job(Request.Form["job-name"], Request.Form["job-description"], Request.Form["job-contact"]);
-        return View["index.cshtml", Job.JobList()];
+        return View["add-jobs.cshtml"];
       };
     }
   }
