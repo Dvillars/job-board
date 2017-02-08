@@ -1,0 +1,16 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h1>Here are the available jobs:</h1>
+
+@foreach(var job in @Model)
+{
+  <div class="well">
+    @job.GetName()
+    <br>
+    @job.GetDesc()
+    <br>
+    @job.GetContact()
+  </div>
+}
